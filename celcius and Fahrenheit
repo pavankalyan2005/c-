@@ -1,0 +1,10 @@
+#include<iostream>
+using namespace std;
+int main(){
+  float fh=50,cel=10;
+fh=(cel*1.8)+32;
+cel=(fh-32)*5/9;
+cout<<"The fahreinheit="<<cel<<endl;
+cout<<"the celcius="<<fh;
+return 0;
+}
