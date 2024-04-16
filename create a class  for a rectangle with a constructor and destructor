@@ -1,0 +1,27 @@
+#include <iostream>
+
+class Rectangle {
+private:
+    double length;
+    double width;
+
+public:
+    Rectangle(double len, double wid) : length(len), width(wid) {
+        std::cout << "A rectangle with length " << length << " and width " << width << " has been created." << std::endl;
+    }
+    ~Rectangle() {
+        std::cout << "The rectangle with length " << length << " and width " << width << " is being destroyed." << std::endl;
+    }
+    double calculateArea() {
+        return length * width;
+    }
+    double calculatePerimeter() {
+        return 2 * (length + width);
+    }
+};
+int main() {
+    Rectangle rect(5.0, 3.0);
+    std::cout << "Area of the rectangle: " << rect.calculateArea() << std::endl;
+    std::cout << "Perimeter of the rectangle: " << rect.calculatePerimeter() << std::endl;
+    return 0;
+  }
