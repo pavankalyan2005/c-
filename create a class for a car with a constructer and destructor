@@ -1,0 +1,26 @@
+#include <iostream>
+#include <string>
+class Car {
+private:
+    std::string make;
+    std::string model;
+    int year;
+public:
+    Car(const std::string& carMake, const std::string& carModel, int carYear)
+        : make(carMake), model(carModel), year(carYear) {
+        std::cout << "A " << year << " " << make << " " << model << " has been manufactured." << std::endl;
+    }
+    ~Car() {
+        std::cout << "The " << year << " " << make << " " << model << " is being destroyed." << std::endl;
+    }
+    void displayInfo() {
+        std::cout << "Make: " << make << ", Model: " << model << ", Year: " << year << std::endl;
+    }
+};
+int main() {
+    Car car1("Toyota", "Camry", 2020);
+    Car car2("Honda", "Civic", 2018);
+    car1.displayInfo();
+    car2.displayInfo();
+    return 0;
+  }
