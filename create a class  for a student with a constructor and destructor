@@ -1,0 +1,35 @@
+#include <iostream>
+#include <string>
+using namespace std;
+class Student {
+    private:
+        string name;
+        int age;
+        float gpa;    
+    public:
+        Student(string n, int a, float g) {
+            name = n;
+            age = a;
+            gpa = g;
+            cout << "Student object created with name: " << name << endl;
+        }
+        ~Student() {
+            cout << "Student object destroyed with name: " << name << endl;
+        }
+        string getName() {
+            return name;
+        }
+        void setAge(int a) {
+            age = a;
+        }
+        float getGPA() {
+            return gpa;
+        }
+};
+int main() {
+    Student student1("John Doe", 20, 3.5);
+    student1.setAge(21);
+    cout << "Student name: " << student1.getName() << endl;
+    cout << "Student GPA: " << student1.getGPA() << endl;
+    return 0;
+}
