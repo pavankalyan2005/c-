@@ -1,0 +1,12 @@
+#include<iostream>
+using namespace std;
+int main()
+{
+  int i,n=5,p;
+  for( i=0;i<=10;i++)
+  {
+    p=n*i;
+    cout<<n<<'*'<<i<<"="<<p<<endl;
+  }
+  return 0;
+}
