@@ -1,0 +1,18 @@
+c++ has a logical operator &&, which can also be written as "and". The && operator is very useful, it takes in two values .for example,a && b works like:
+return true if a and b are true and false otherwise . The && operator  is equivalent to perform the above information 
+make a function using &&.
+A) 
+#include<iostream>
+using namespace std;
+bool logicalAnd(bool a, bool b){
+return a && b;
+}
+int main(){
+bool x=true;
+bool y=false;
+cout<<"Result of x && y :"<<logicalAnd(x,y)<<endl;
+x=true;
+y=false;
+cout<<" Result of x && y :"<<logicalAnd(x,y)<<endl;
+return 0;
+}
