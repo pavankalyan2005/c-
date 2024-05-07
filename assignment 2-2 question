@@ -1,0 +1,38 @@
+create a class named 'rectangle' with two data members length and breadth and a function to calculate area which is 'length * breadth'.
+the class has three constructors which are :
+1-no parameter- values of both length and breadth are assigned Zero.
+2-two parameters- two values are assigned as length and breadth respectively.
+3-one parameter- both length and breadth with same value 
+create objects  of 'rectangle' class having none, one and two  parameters and print its area.
+
+A)#include<iostream>
+using namespace std;
+class Rectangle{
+private:
+int length;
+int breadth;
+public:
+Rectangle(){
+length =0; 
+breadth=0;
+} 
+Rectangle(int l,int b){
+length =0;
+breadth =0;
+}
+Rectangle(int side){
+length=side;
+breadth=side;
+}
+int calculateArea(){
+return length * breadth;
+};
+int main(){
+Rectangle rect 1;
+Rectangle rect 2(3,3);
+Rectangle rect 3(3);
+cout<<"Area :"<<rect1.calculate Area()<<endl;
+cout<<"Area :"<<rect2.calculate Area()<<endl;
+cout<<"Area :"<<rect3.calculate Area()<<endl;
+return 0;
+}
