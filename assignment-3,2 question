@@ -1,0 +1,65 @@
+A student signed up for workshops and wants to attend the maximum number of workshops where no two workshops overlap. You must do the following:
+Implement 2 structures:
+struct Workshop having the following members:
+•The workshop's start time.
+•The workshop's duration.
+•The workshop's end time.
+struct Available_Workshops having the following members:
+a. An integer, n (the number of workshops the student signed up for).
+b . An array of type Workshop array having size n.
+Implement 2 functions:
+1.Available_Workshops* initialize (int start_time(), int duration[], int n) 
+2.int CalculateMaxWorkshops (Available_Workshops* ptr)
+
+A)
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+struct Workshop {
+    int start_time;
+    int duration;
+    int end_time;
+};
+struct Available_Workshops {
+    int n;
+    vector<Workshop> workshops;
+};
+bool compareWorkshops(const Workshop& a, const Workshop& b) {
+    return a.end_time < b.end_time;
+}
+Available_Workshops* initialize(int start_time[], int duration[], int n) {
+    Available_Workshops* ptr = new Available_Workshops;
+    ptr->n = n;
+    for (int i = 0; i < n; ++i) {
+        Workshop workshop;
+        workshop.start_time = start_time[i];
+        workshop.duration = duration[i];
+        workshop.end_time = start_time[i] + duration[i];
+        ptr->workshops.push_back(workshop);
+    }
+    return ptr;
+}
+int CalculateMaxWorkshops(Available_Workshops* ptr) {
+    sort(ptr->workshops.begin(), ptr->workshops.end(), compareWorkshops);    
+    int count = 1; // At least one workshop can be attended
+    int end_time = ptr->workshops[0].end_time;
+    for (int i = 1; i < ptr->n; ++i) {
+        if (ptr->workshops[i].start_time >= end_time) {
+            // If the current workshop starts after the previous one ends, attend it
+            ++count;
+            end_time = ptr->workshops[i].end_time;
+        }
+    }
+    return count;
+}
+int main() {
+    int start_time[] = {1, 3, 0, 5, 8, 5};
+    int duration[] = {2, 4, 6, 2, 1, 4};
+    int n = sizeof(start_time) / sizeof(start_time[0]); 
+    Available_Workshops* workshops = initialize(start_time, duration, n);
+    int max_workshops = CalculateMaxWorkshops(workshops);    
+    cout << "Maximum number of workshops that can be attended: " << max_workshops << endl;
+    delete workshops; 
+    return 0;
+}
